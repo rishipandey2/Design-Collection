@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Collections - Premium Frontend Designs</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">DesignCollections</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium Frontend Design Collections</h1>
+            <p>Discover beautifully crafted, modern UI components and design systems. Built with precision, inspired by excellence.</p>
+            <a href="#collections" class="cta-button">
+                Explore Collections
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Collections -->
+    <section class="collections" id="collections">
+        <h2 class="section-title">Featured Collections</h2>
+        <div class="collections-grid">
+            <div class="collection-card fade-in">
+                <div class="card-count">24 Components</div>
+                <div class="card-icon">🎨</div>
+                <h3 class="card-title">Authentication UI</h3>
+                <p class="card-description">Complete authentication flows with modern design patterns. Login, signup, password reset, and social auth components.</p>
+            </div>
+
+            <div class="collection-card fade-in">
+                <div class="card-count">18 Components</div>
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Dashboard Elements</h3>
+                <p class="card-description">Professional dashboard components including charts, tables, cards, and analytics widgets for data visualization.</p>
+            </div>
+
+            <div class="collection-card fade-in">
+                <div class="card-count">32 Components</div>
+                <div class="card-icon">💫</div>
+                <h3 class="card-title">Interactive Components</h3>
+                <p class="card-description">Engaging UI elements with smooth animations, hover effects, and micro-interactions that delight users.</p>
+            </div>
+
+            <div class="collection-card fade-in">
+                <div class="card-count">15 Layouts</div>
+                <div class="card-icon">🏗️</div>
+                <h3 class="card-title">Landing Pages</h3>
+                <p class="card-description">Conversion-optimized landing page templates with modern designs and responsive layouts.</p>
+            </div>
+
+            <div class="collection-card fade-in">
+                <div class="card-count">28 Components</div>
+                <div class="card-icon">📱</div>
+                <h3 class="card-title">Mobile-First UI</h3>
+                <p class="card-description">Mobile-optimized components and layouts designed for touch interfaces and smaller screens.</p>
+            </div>
+
+            <div class="collection-card fade-in">
+                <div class="card-count">12 Themes</div>
+                <div class="card-icon">🌙</div>
+                <h3 class="card-title">Dark Mode Designs</h3>
+                <p class="card-description">Elegant dark theme components with carefully crafted color palettes and accessibility considerations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Choose Our Collections</h2>
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Performance Optimized</h3>
+                    <p class="feature-description">Every component is built with performance in mind, ensuring fast load times and smooth interactions.</p>
+                </div>
+
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Production Ready</h3>
+                    <p class="feature-description">Battle-tested components used in real applications, with comprehensive documentation and examples.</p>
+                </div>
+
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Fully Customizable</h3>
+                    <p class="feature-description">Easy to customize and extend. Built with modern CSS and JavaScript, compatible with any framework.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#collections">Collections</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+                <a href="#docs">Documentation</a>
+                <a href="#support">Support</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DesignCollections. Crafted with ❤️ for designers and developers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Collection card interactions
+        document.querySelectorAll('.collection-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+
+            card.addEventListener('click', function() {
+                // Add click animation
+                this.style.transform = 'translateY(-4px) scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                }, 150);
+
+                // Simulate navigation to collection detail
+                console.log('Navigating to:', this.querySelector('.card-title').textContent);
+            });
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Add dynamic count animation
+        function animateCount(element, start, end, duration) {
+            let startTime = null;
+            
+            function animate(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value + ' Components';
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        // Initialize count animations when cards become visible
+        const cardObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const countElement = entry.target.querySelector('.card-count');
+                    if (countElement && !countElement.classList.contains('animated')) {
+                        const finalCount = parseInt(countElement.textContent);
+                        countElement.classList.add('animated');
+                        animateCount(countElement, 0, finalCount, 1000);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.collection-card').forEach(card => {
+            cardObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
